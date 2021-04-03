@@ -56,9 +56,9 @@ validation_set = validation_set.append(validation_set2,ignore_index = True)
 validation_set = validation_set.append(validation_set3,ignore_index = True)
 
 
-X_train = training_set.iloc[:, 1:-1].values
+X_train = training_set.iloc[:, 1:].values
 Y_train = training_set.iloc[:, 0].values
-X_val = validation_set.iloc[:, 1:-1].values
+X_val = validation_set.iloc[:, 1:].values
 y_val = validation_set.iloc[:, 0].values
 
 #Initializing the MLPClassifier
