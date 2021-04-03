@@ -115,6 +115,7 @@ print("True Positive Rate(TPR) : ", TPR, "\n")
 TNR = TN/(TN+FP) 
 print("True Negative Rate(TNR) : ", TNR, "\n")
 
+#ROC
 fpr = dict()
 tpr = dict()
 roc_auc = dict()
