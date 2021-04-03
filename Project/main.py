@@ -1,7 +1,8 @@
 import os
 import numpy as np
 import pandas as pd
-from scipy import interp
+import pickle
+from scipy import interpolate
 from itertools import cycle
 import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
@@ -12,7 +13,7 @@ from sklearn.metrics import accuracy_score
 from sklearn.metrics import plot_confusion_matrix
 from sklearn.metrics import roc_curve,auc
 
-path = r'/Users/mouni.kolisetty/Documents/Sem 3/machine learning/Files for task 5'
+path = r'C:\Users\anikl\PycharmProjects\finalproject\MLPprojects\Project\Files for task 5'
 
 object1_data = pd.DataFrame()
 object2_data = pd.DataFrame()
@@ -161,3 +162,7 @@ plt.ylabel('True Positive Rate')
 plt.title('Receiver Operating Characteristic (ROC)')
 plt.legend(loc="lower right")
 plt.show()
+
+filename = 'trained_model.sav'
+pickle.dump(classifier,open(filename,'wb'))
+
