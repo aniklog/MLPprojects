@@ -3,7 +3,8 @@ import os
 import openpyxl
 import numpy as np
 import pandas as pd
-from scipy import interp
+import pickle
+from scipy import interpolate
 from itertools import cycle
 import matplotlib.pyplot as plt
 from tkinter import *
@@ -83,7 +84,7 @@ def main():
     validation_set = pd.DataFrame()
     validation_set1 = pd.DataFrame() 
     validation_set2 = pd.DataFrame() 
-    validation_set3 = pd.DataFrame()   
+    validation_set3 = pd.DataFrame()
     for subdir, dirs, files in os.walk(folder_path):
         for dir in dirs:
             subdir_path = os.path.join(subdir, dir)
@@ -226,7 +227,8 @@ def main():
     plt.title('Receiver Operating Characteristic (ROC)')
     plt.legend(loc="lower right")
     plt.show()
-    
+    filename = 'finalized_model.sav'
+    pickle.dump(classifier, open(filename, 'wb'))
     tk.messagebox.showinfo("Completed", "Training and Validating model is completed successfully")
     
 
